@@ -27,3 +27,23 @@ btnSubstract.addEventListener('click', async() => {
         p.textContent = counter;
     }, 5);
 })
+
+
+const totalTime = document.getElementById('totalTime');
+const startBtn = document.getElementById('start-btn');
+const liveTimer = document.getElementById('liveTimer')
+
+liveTimer.textContent = 0;
+
+startBtn.addEventListener('click', () => {
+    let timeLeft = totalTime.value;
+    liveTimer.textContent = timeLeft;
+    let timer = setInterval(() => {
+        timeLeft--;
+        liveTimer.textContent = timeLeft;
+        if(timeLeft == 0){
+            alert('¡Temporizador terminado!')
+            clearTimeout(timer);
+        }
+    },1000)
+})
